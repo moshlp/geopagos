@@ -4,4 +4,13 @@
     <string name="button_continue">Continue</string>
     <string name="error_amount">Please enter a value</string>
     <string name="choose_payment">Choose your payment method below:</string>
+    <string name="select_one">Please select 1 credit card to continue</string>
+    <string name="ok">OK</string>
+    <string name="choose_bank">Choose your bank below:</string>
+    <string name="select_one_bank">Please select one bank to continue</string>
+    <string name="choose_installments">Choose installments:</string>
+    <string name="no_banks">No banks found for this payment method</string>
+    <string name="no_installments">No installments found for this bank</string>
+    <string name="confirm_transaction">Please check your choices and confirm the transaction</string>
+    <string name="button_confirm">CONFIRM</string>
 </resources>

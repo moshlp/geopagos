@@ -7,13 +7,13 @@ import com.example.demogeopagos.data.repository.MainRepository
 import com.example.demogeopagos.presentation.banks.BanksViewModel
 import com.example.demogeopagos.presentation.payment.viewmodel.PaymentMethodsViewModel
 
-class ViewModelFactory(
+class ViewModelFactoryBanks(
     private val apiHelper: ApiHelper
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(PaymentMethodsViewModel::class.java)) {
-            return PaymentMethodsViewModel(MainRepository(apiHelper)) as T
+        if (modelClass.isAssignableFrom(BanksViewModel::class.java)) {
+            return BanksViewModel(MainRepository(apiHelper)) as T
         }
         throw IllegalArgumentException("Unknown class name")
 
