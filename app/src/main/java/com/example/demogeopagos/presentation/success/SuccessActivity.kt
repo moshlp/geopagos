@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +11,7 @@ import com.example.demogeopagos.R
 import com.example.demogeopagos.commons.BaseActivity
 import com.example.demogeopagos.databinding.ActivitySuccessBinding
 import com.example.demogeopagos.presentation.amount.AmountActivity
+import com.example.demogeopagos.presentation.success.viewmodel.SuccessViewModel
 
 class SuccessActivity : BaseActivity() {
 

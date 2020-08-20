@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.demogeopagos.data.api.ApiHelper
 import com.example.demogeopagos.data.repository.MainRepository
-import com.example.demogeopagos.presentation.banks.BanksViewModel
 import com.example.demogeopagos.presentation.payment.viewmodel.PaymentMethodsViewModel
 
 class ViewModelFactory(

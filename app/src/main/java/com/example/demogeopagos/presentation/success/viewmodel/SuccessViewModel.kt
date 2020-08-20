@@ -1,4 +1,4 @@
-package com.example.demogeopagos.presentation.success
+package com.example.demogeopagos.presentation.success.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
