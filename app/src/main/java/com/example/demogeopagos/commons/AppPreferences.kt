@@ -11,8 +11,13 @@ class AppPreferences (context: Context) {
     val BANK_NAME = "bank_name"
     val INSTALLMENT_DETAIL = "installment_detail"
     val AMOUNT = "amount"
+    val CURRENCY_SYMBOL = "currency_symbol"
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, 0)
+
+    var currency_symbol: String?
+        get() = prefs.getString(CURRENCY_SYMBOL, "")
+        set(value) = prefs.edit().putString(CURRENCY_SYMBOL, value).apply()
 
     var amount: String?
         get() = prefs.getString(AMOUNT, "")

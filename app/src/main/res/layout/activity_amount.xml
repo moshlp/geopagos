@@ -29,21 +29,24 @@
             android:background="@android:color/white"
             android:baselineAligned="true"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             app:boxBackgroundColor="@android:color/white"
-            app:boxBackgroundMode="filled"
+            app:boxBackgroundMode="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.cottacush.android.currencyedittext.CurrencyEditText
+            <EditText
                 android:id="@+id/anamount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
+                android:hint="@string/enter_amount"
+                android:inputType="numberDecimal"
                 android:textColorHint="@color/colorAccent"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:autofillHints="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

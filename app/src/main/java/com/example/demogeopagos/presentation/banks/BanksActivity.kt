@@ -6,21 +6,16 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demogeopagos.R
 import com.example.demogeopagos.commons.BaseActivity
-import com.example.demogeopagos.commons.ViewModelFactoryBanks
-import com.example.demogeopagos.data.api.ApiHelper
-import com.example.demogeopagos.data.api.RetrofitBuilder
 import com.example.demogeopagos.data.model.BankResponse
 import com.example.demogeopagos.databinding.ActivityBanksBinding
 import com.example.demogeopagos.presentation.banks.adapter.BanksAdapter
 import com.example.demogeopagos.presentation.banks.viewmodel.BanksViewModel
 import com.example.demogeopagos.presentation.installments.InstallmentsActivity
 import com.example.demogeopagos.presentation.payment.PaymentMethodsActivity
-import com.example.demogeopagos.presentation.payment.viewmodel.PaymentMethodsViewModel
 import com.example.demogeopagos.utils.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
