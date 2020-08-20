@@ -6,26 +6,23 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demogeopagos.R
 import com.example.demogeopagos.commons.BaseActivity
-import com.example.demogeopagos.commons.ViewModelFactory
-import com.example.demogeopagos.data.api.ApiHelper
-import com.example.demogeopagos.data.api.RetrofitBuilder
 import com.example.demogeopagos.data.model.PaymentMethodsResponse
 import com.example.demogeopagos.databinding.ActivityPaymentMethodsBinding
 import com.example.demogeopagos.presentation.banks.BanksActivity
 import com.example.demogeopagos.presentation.payment.adapter.PaymentMethodsAdapter
 import com.example.demogeopagos.presentation.payment.viewmodel.PaymentMethodsViewModel
 import com.example.demogeopagos.utils.Status
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class PaymentMethodsActivity : BaseActivity() {
 
     private lateinit var viewDataBinding: ActivityPaymentMethodsBinding
-    private lateinit var viewModel: PaymentMethodsViewModel
+    private val viewModel by viewModel<PaymentMethodsViewModel>()
     private lateinit var adapter: PaymentMethodsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,14 +30,13 @@ class PaymentMethodsActivity : BaseActivity() {
 
         checkIntent()
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_payment_methods)
-        setupViewModel();
         initViews()
         subscribeViewModel();
     }
 
     private fun checkIntent() {
-        if (intent != null){
-            if (intent.getBooleanExtra("no_banks",false)){
+        if (intent != null) {
+            if (intent.getBooleanExtra("no_banks", false)) {
                 Toast.makeText(applicationContext, R.string.no_banks, Toast.LENGTH_LONG).show()
 
             }
@@ -74,13 +70,6 @@ class PaymentMethodsActivity : BaseActivity() {
         adapter.apply {
             setData(pm)
         }
-    }
-
-    private fun setupViewModel() {
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        ).get(PaymentMethodsViewModel::class.java)
     }
 
     private fun initViews() {

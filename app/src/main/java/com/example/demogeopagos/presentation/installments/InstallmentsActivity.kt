@@ -17,22 +17,24 @@ import com.example.demogeopagos.data.api.RetrofitBuilder
 import com.example.demogeopagos.data.model.InstallmentsResponse
 import com.example.demogeopagos.databinding.ActivityInstallmentsBinding
 import com.example.demogeopagos.presentation.banks.BanksActivity
+import com.example.demogeopagos.presentation.banks.viewmodel.BanksViewModel
 import com.example.demogeopagos.presentation.installments.adapter.InstallmentsAdapter
-import com.example.demogeopagos.presentation.payment.PaymentMethodsActivity
+import com.example.demogeopagos.presentation.installments.viewmodel.InstallmentsViewModel
 import com.example.demogeopagos.presentation.success.SuccessActivity
 import com.example.demogeopagos.utils.Status
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class InstallmentsActivity : BaseActivity() {
 
     private lateinit var viewDataBinding: ActivityInstallmentsBinding
     private lateinit var adapter: InstallmentsAdapter
-    private lateinit var viewModel: InstallmentsViewModel
+    private val viewModel by viewModel<InstallmentsViewModel>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_installments)
-        setupViewModel();
         initViews()
         subscribeViewModel()
     }
@@ -77,13 +79,6 @@ class InstallmentsActivity : BaseActivity() {
         }
 
 
-    }
-
-    private fun setupViewModel() {
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelFactoryInstallments(ApiHelper(RetrofitBuilder.apiService))
-        ).get(InstallmentsViewModel::class.java)
     }
 
     private fun initViews() {

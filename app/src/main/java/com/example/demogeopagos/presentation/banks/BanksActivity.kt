@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,30 +11,29 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demogeopagos.R
 import com.example.demogeopagos.commons.BaseActivity
-import com.example.demogeopagos.commons.ViewModelFactory
 import com.example.demogeopagos.commons.ViewModelFactoryBanks
 import com.example.demogeopagos.data.api.ApiHelper
 import com.example.demogeopagos.data.api.RetrofitBuilder
 import com.example.demogeopagos.data.model.BankResponse
 import com.example.demogeopagos.databinding.ActivityBanksBinding
 import com.example.demogeopagos.presentation.banks.adapter.BanksAdapter
+import com.example.demogeopagos.presentation.banks.viewmodel.BanksViewModel
 import com.example.demogeopagos.presentation.installments.InstallmentsActivity
 import com.example.demogeopagos.presentation.payment.PaymentMethodsActivity
 import com.example.demogeopagos.presentation.payment.viewmodel.PaymentMethodsViewModel
 import com.example.demogeopagos.utils.Status
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BanksActivity : BaseActivity() {
 
     private lateinit var viewDataBinding: ActivityBanksBinding
-    private lateinit var viewModel: BanksViewModel
+    private val viewModel by viewModel<BanksViewModel>()
     private lateinit var adapter: BanksAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         checkIntent()
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_banks)
-        setupViewModel();
         initViews()
         subscribeViewModel()
     }
@@ -83,13 +81,6 @@ class BanksActivity : BaseActivity() {
         adapter.apply {
             setData(banks)
         }
-    }
-
-    private fun setupViewModel() {
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelFactoryBanks(ApiHelper(RetrofitBuilder.apiService))
-        ).get(BanksViewModel::class.java)
     }
 
     private fun initViews() {

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.demogeopagos.presentation.success.SuccessViewModel" />
+            type="com.example.demogeopagos.presentation.success.viewmodel.SuccessViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
